@@ -15,15 +15,15 @@ use presupuestos\helpers\ResponseHelper;
 use PDO;
 
 
-class AuthController
-{
+class AuthController{
 
-    public function showLogin()
-    {
+    public function showLogin(){
+
         if (isset($_SESSION[APP_SESSION_NAME])) {
             header('Location: /dashboard');
             exit;
         }
+
 
         $getDepartaments = new MainModel();
         $queryDepartaments = "SELECT * FROM departamentos ";
@@ -33,8 +33,7 @@ class AuthController
         require __DIR__ . '/../../view/Auth/login.php';
     }
 
-    public function getCentros()
-    {
+    public function getCentros(){
         if (isset($_GET['departamento'])) {
             $getCentro = new MainModel();
             $queryCentro = "SELECT * FROM centros WHERE idDepartamentoFK = :departamento";
@@ -50,8 +49,7 @@ class AuthController
         }
     }
 
-    public function login(array $credentials)
-    {
+    public function login(array $credentials){
 
         header('Content-Type: application/json; charset=utf-8');
         header('Cache-Control: no-cache, must-revalidate');
@@ -100,18 +98,18 @@ class AuthController
             $centroId = $dataUser['idCentroFk'];
             //Obtengo todas las semanas
             $semanas = AnioFiscalModel::obtenerSemanaActiva($centroId);
-
+            
 
             //Obtengo el año fiscal activo
             $anioFiscalActivo = AnioFiscalModel::getPresupuestoActivo($centroId);
-
+            
             //Obtengo las semana por centro y la qué está activa
             $semanaActiva = AnioFiscalModel::obtenerSemanaActiva($centroId);
 
             //Guardar la semana activa, y el año fiscal activo
             $_SESSION[APP_SESSION_NAME] = [
                 'idUsuarioSession'       => $dataUser['idUser'],
-                'usuarioLogueadoSession' => $dataUser['nombres'] . ' ' . $dataUser['apellidos'],
+                'usuarioLogueadoSession' => $dataUser['nombres'].' '.$dataUser['apellidos'],
                 'emailLoginSession'    => $dataUser['email'],
                 'idCentroIdSession'     => $dataUser['idCentroFk'],
                 'idRolSession' => $dataUser['idRolFk'],
@@ -136,13 +134,12 @@ class AuthController
         } catch (\Exception $e) {
             echo json_encode([
                 'state' => 0,
-                'message' => 'Error 505. Consulte con el administrador',
+                'message'=> 'Error 505. Consulte con el administrador',
             ]);
         }
     }
 
-    public function register(array $data)
-    {
+    public function register(array $data){
         header('Content-Type: application/json; charset=utf-8');
         header('Cache-Control: no-cache, must-revalidate');
 
@@ -220,7 +217,7 @@ class AuthController
                         ? "Registro exitoso. Verifica tu correo para activar tu cuenta."
                         : "Registro exitoso, pero hubo un error enviando el correo: $sent"
 
-                    //Imprimir $sent para ver el error
+                        //Imprimir $sent para ver el error
                 ]);
             } else {
                 echo json_encode([
@@ -236,8 +233,7 @@ class AuthController
         }
     }
 
-    public function recoveryPassword(array $data)
-    {
+    public function recoveryPassword(array $data){
         header('Content-Type: application/json; charset=utf-8');
         header('Cache-Control: no-cache, must-revalidate');
 
@@ -263,37 +259,34 @@ class AuthController
         $expiresAt = tokenHelper::expiration();
 
         $tokenModel->create($dataUser['idUser'], $token, 'recovery', $expiresAt);
-
+      
         $sent = $mailer->sendRecoveryEmail([
             'name' => $dataUser['nombres'],
             'lastName' => $dataUser['apellidos'],
             'email' => $dataUser['email'] ?? $email
         ], $token);
 
-        if ($sent == true) {
+        if($sent== true){
             ResponseHelper::success("Correo de recuperación enviado correctamente.");
         } else {
             ResponseHelper::error("Error al enviar el correo: $sent");
         }
-
+        
         return;
     }
 
-    public function showSendSuccessful()
-    {
+    public function showSendSuccessful(){
         $email = $_GET['email'] ?? '';
         require __DIR__ . '/../../view/Auth/send_successful.php';
         exit;
     }
 
-    public function showRecoveryPassword()
-    {
+    public function showRecoveryPassword(){
 
         require __DIR__ . '/../../view/Auth/recovery_password.php';
     }
 
-    public function verify()
-    {
+    public function verify(){
         $token = $_GET['token'] ?? null;
         if (!$token) {
             require __DIR__ . "/../../view/errors/404.php";
@@ -331,8 +324,7 @@ class AuthController
         }
     }
 
-    public function logout()
-    {
+    public function logout(){
         session_start();
         session_unset();
         session_destroy();
