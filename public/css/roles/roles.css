@@ -1,0 +1,92 @@
+@import url('../variables_globales.css');
+
+.modal-roles .roles-content {
+	background-color: var(--color-primary);
+	color: var(--text-secondary);
+	border: 1px solid var(--border-light);
+	border-top: 6px solid var(--color-accent);
+	border-radius: 10px;
+	box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+	font-family: var(--font-family-base);
+	transition: box-shadow .35s ease, transform .35s ease;
+	transform: translateY(-6px);
+}
+
+.modal-roles.show .roles-content {
+	transform: translateY(0);
+	box-shadow: 0 10px 28px rgba(0,0,0,0.18);
+}
+
+.modal-roles .roles-header {
+	background: linear-gradient(135deg, var(--color-quaternary), #ffffff);
+	border-bottom: 1px solid var(--border-lighter);
+}
+
+.modal-roles .roles-header .modal-title {
+	font-size: 1rem;
+	font-weight: 600;
+	color: var(--text-secondary);
+}
+
+.modal-roles .btn-close {
+	outline: none;
+	box-shadow: none;
+}
+
+.modal-roles .roles-body {
+	padding-top: 10px;
+}
+
+.roles-list .list-group-item {
+	background-color: var(--color-tertiary);
+	color: var(--text-secondary);
+	border: 1px solid var(--border-light);
+}
+
+.roles-footer {
+	background-color: var(--color-quaternary);
+	border-top: 1px solid var(--border-lighter);
+}
+
+.roles-btn-save {
+	background-color: var(--color-secondary);
+	border: 1px solid var(--color-secondary);
+	font-weight: 600;
+	padding: 10px 22px;
+	border-radius: 10px;
+	transition: background-color .3s ease, box-shadow .3s ease, transform .15s ease;
+}
+
+.roles-btn-save:hover {
+	background-color: var(--color-accent);
+	border-color: var(--color-accent);
+}
+
+.roles-btn-save:active {
+	transform: scale(.97);
+}
+
+.roles-btn-cancel {
+	background-color: var(--color-primary);
+	color: var(--color-accent);
+	border: 2px solid var(--color-accent);
+	font-weight: 600;
+	padding: 10px 22px;
+	border-radius: 10px;
+	transition: background-color .3s ease, color .3s ease, transform .15s ease;
+}
+
+.roles-btn-cancel:hover {
+	background-color: var(--color-accent);
+	color: var(--color-primary);
+}
+
+.roles-btn-cancel:active {
+	transform: scale(.97);
+}
+
+@media (max-width: 576px) {
+	.roles-content { border-radius: 0; }
+	.roles-btn-save, .roles-btn-cancel { width: 100%; }
+	.roles-footer { flex-direction: column; gap: 8px; }
+}

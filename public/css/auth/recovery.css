@@ -1,0 +1,309 @@
+@import url('../variables_globales.css');
+
+:root{
+  --color-white: var(--color-primary);
+  --color-black: var(--color-quinary);
+  --color-bg-light: var(--color-quaternary);            
+  --color-input-bg: var(--color-tertiary);            
+  --color-primary-blue: var(--color-secondary);        
+  --color-text-primary: var(--text-secondary);        
+  --color-text-secondary: var(--text-tertiary);      
+  --color-accent-zapote: var(--color-accent); 
+  --color-danger: var(--error-color);
+  --color-success: var(--success-color);
+  --font-size-sm: 14px;
+  --font-size-md: 16px;
+  --font-size-lg: 18px;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-family-base);
+  background-color: var(--color-bg-light) !important;
+  color: var(--color-text-primary);
+}
+
+.alerts{
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  left: auto;
+  width: auto;
+  display: none; 
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 8px;
+  z-index: 9999;
+  pointer-events: none;
+}
+.container-alert{
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: var(--font-size-md);
+  font-weight: 600;
+  padding: 10px 14px 10px 18px;
+  border-radius: 10px;
+  margin: 0;
+  color: var(--color-text-primary);
+  background-color: var(--color-white);
+  border: 1px solid var(--border-light);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+  pointer-events: auto;
+  opacity: 0;
+  transform: translateY(-10px);
+  animation: alert-in 300ms ease-out forwards;
+}
+
+.alerts.show{
+  display: flex;
+}
+.container-alert::before{
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 6px;
+  border-radius: 10px 0 0 10px;
+  background-color: var(--border-light);
+}
+
+.container-alert-success{
+  color: var(--success-color);
+}
+.container-alert-success::before{
+  background-color: var(--success-color);
+}
+.container-alert-danger{
+  color: var(--error-color);
+}
+.container-alert-danger::before{
+  background-color: var(--error-color);
+}
+
+.alert-text{
+  margin: 0;
+  line-height: 1.25;
+}
+
+.login {
+  width: 100%;
+  height: 100vh;
+  display: grid;
+  place-items: center;
+}
+
+.form-container {
+  margin-top: 0px;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  width: 320px;
+  border-radius: 8px;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+  border-top: 6px solid var(--color-accent-zapote);
+  padding: 40px 30px;
+  background-color: var(--color-white);
+  color: var(--color-text-primary);
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-bottom: 32px;
+  padding: 0 8px;
+}
+
+.logo {
+  width: 60px;
+  height: auto;
+  display: block;
+}
+
+.title {
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  color: var(--color-text-primary);
+  margin: 0;
+  text-align: left;
+  margin-left: 16px;
+  padding-left: 16px;
+  border-left: 1px solid var(--color-tertiary);
+}
+
+.form-login {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-login a {
+  color: var(--color-accent-zapote);
+  font-size: var(--font-size-sm);
+  text-align: center;
+  text-decoration: none;
+  margin-bottom: 52px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.label {
+  font-size: var(--font-size-sm);
+  font-weight: bold;
+  margin-bottom: 6px;
+  color: var(--color-text-primary);
+}
+
+.input {
+  background-color: var(--color-input-bg);
+  border: none;
+  border-radius: 8px;
+  height: 40px;
+  font-size: var(--font-size-sm);
+  padding: 8px 12px;
+  /*margin-bottom: 16px;*/
+  color: var(--color-text-primary);
+  transition: box-shadow 0.3s ease;
+}
+.inputRegister:focus {
+  outline: none;
+  box-shadow: none;
+  border: 1px solid var(--border-light);
+}
+
+.inputRegister {
+  background-color: var(--color-input-bg) !important;
+  border: none !important;
+  border-radius: 12px !important;
+  color: var(--color-text-primary) !important;
+  transition: box-shadow 0.3s ease;
+}
+
+.inputRegister:focus {
+  background-color: var(--color-input-bg) !important;
+  border: 1px solid var(--color-accent-zapote) !important;
+  box-shadow: 0 0 0 3px rgba(214, 126, 61, 0.1) !important;
+  outline: none !important;
+}
+
+/* Estilos para el botón de registro */
+.signup-button {
+  background-color: var(--color-primary-blue) !important;
+  border-color: var(--color-primary-blue) !important;
+  border-radius: 8px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.signup-button:hover {
+  background-color: var(--color-accent-zapote) !important;
+  border-color: var(--color-accent-zapote) !important;
+}
+
+.input:focus{
+  outline: none;
+  /*box-shadow: 0 0 0 3px var(--color-accent-zapote); */
+}
+
+.input-username {
+  margin-bottom: 22px;
+}
+.input-password{
+  margin-bottom: 4px;
+}
+
+.primary-button {
+  background-color: var(--color-primary-blue);
+  border-radius: 8px;
+  border: none;
+  color: var(--color-white);
+  width: 100%;
+  cursor: pointer;
+  font-size: var(--font-size-md);
+  font-weight: bold;
+  height: 52px;
+  transition: background-color 0.3s ease;
+}
+
+.primary-button:hover {
+  background-color: var(--color-accent-zapote);
+}
+
+.secondary-button {
+  background-color: var(--color-white);
+  border-radius: 8px;
+  border: 2px solid var(--color-accent-zapote);
+  color: var(--color-accent-zapote);
+  width: 100%;
+  cursor: pointer;
+  font-size: var(--font-size-md);
+  font-weight: bold;
+  height: 52px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.secondary-button:hover {
+  background-color: var(--color-accent-zapote);
+  color: var(--color-white);
+}
+
+.login-button {
+  margin-top: 14px;
+  margin-bottom: 30px;
+}
+
+@media (max-width: 640px) {
+  .logo {
+    width: 80px;
+  }
+  
+  .title {
+    text-align: left;
+    margin-left: 12px;
+    padding-left: 12px;
+    font-size: var(--font-size-md);
+  }
+}
+
+.input-error{
+  border: 2px solid var(--error-color);
+  background-color: #FFF0F0 !important;
+  animation: shake 0.3s;
+  outline: none;
+}
+
+@keyframes shake {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  50% { transform: translateX(5px); }
+  75% { transform: translateX(-5px); }
+  100% { transform: translateX(0); }
+}
+
+/* Animaciones de alertas */
+@keyframes alert-in {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes alert-out {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+}
+
+.alert-hide{
+  animation: alert-out 250ms ease-in forwards;
+}

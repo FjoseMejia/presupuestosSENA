@@ -1,0 +1,189 @@
+/* ========== SIDEBAR PRINCIPAL ========== */
+.sidebar {
+  position: fixed;
+  top: 70px;
+  left: 0;
+  height: calc(100vh - 70px);
+  width: 280px;
+  background: white;
+  border-right: 1px solid var(--border-light);
+  box-shadow: var(--shadow-lg);
+  display: flex;
+  flex-direction: column;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
+  z-index: 1045;
+  overflow-y: auto;
+}
+
+.sidebar.show {
+  transform: translateX(0);
+}
+
+/* ========== ACORDEONES ========== */
+.sidebar .accordion {
+  --bs-accordion-border-width: 0;
+  --bs-accordion-border-radius: 0;
+  --bs-accordion-inner-border-radius: 0;
+  --bs-accordion-btn-padding-x: 1rem;
+  --bs-accordion-btn-padding-y: 1rem;
+  --bs-accordion-btn-color: white;
+
+  --bs-accordion-btn-icon: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='white'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+  --bs-accordion-btn-icon-width: 1.25rem;
+  --bs-accordion-btn-icon-transform: rotate(-180deg);
+  --bs-accordion-btn-icon-transition: transform 0.2s ease-in-out;
+  --bs-accordion-btn-active-icon: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='white'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+  --bs-accordion-body-padding-x: 0;
+  --bs-accordion-body-padding-y: 0;
+  flex: 1;
+}
+
+.sidebar .accordion-item {
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid var(--border-light);
+  margin: 0;
+}
+
+.sidebar .accordion-button {
+
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: white !important;
+  padding: 1rem 1rem 1rem 1.5rem !important;
+  transition: all 0.2s ease;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  border: none !important;
+  margin: 0 !important;
+  display: flex !important;
+  align-items: center;
+  width: 100%;
+}
+
+.sidebar .accordion-button:not(.collapsed) {
+
+  color: white !important;
+  box-shadow: none !important;
+}
+
+.sidebar .accordion-button:hover {
+
+  color: white !important;
+}
+
+.sidebar .accordion-button:focus {
+  box-shadow: none !important;
+  border-color: transparent !important;
+}
+
+.sidebar .accordion-button::after {
+  margin-left: auto;
+  background-image: var(--bs-accordion-btn-icon);
+}
+
+/* ========== ELEMENTOS SIMPLES DEL MENÚ ========== */
+.sidebar .menu-item {
+  border-bottom: 1px solid var(--border-light);
+  padding: 0;
+}
+
+.sidebar .menu-item a,
+.sidebar .menu-item button {
+  display: flex !important;
+  align-items: center;
+  width: 100%;
+  padding: 1rem 1rem 1rem 1.5rem !important;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: white !important;
+  text-decoration: none;
+  border: none !important;
+
+  border-radius: 0 !important;
+  transition: all 0.2s ease;
+  margin: 0 !important;
+}
+
+.sidebar .menu-item a:hover,
+.sidebar .menu-item button:hover {
+
+  color: white !important;
+}
+
+/* ========== SUBMENÚS ========== */
+.sidebar .accordion-collapse {
+  background: #f8fafc;
+}
+
+.sidebar .list-group-item {
+  background: transparent;
+  border: 0;
+  border-top: 1px solid var(--border-light);
+  padding: 0.75rem 1.5rem 0.75rem 2.5rem;
+}
+
+.sidebar .list-group-item:first-child {
+  border-top: 0;
+}
+
+.sidebar .list-group-item a {
+  text-decoration: none;
+  color: var(--color-quinary);
+  display: block;
+  padding: 0.25rem 0;
+  transition: all 0.2s ease;
+  font-weight: 500;
+  font-size: 0.85rem;
+  background: transparent !important;
+}
+
+.sidebar .list-group-item a:hover {
+
+  padding-left: 0.5rem;
+  background: transparent !important;
+}
+
+/* ========== BACKDROP ========== */
+.backdrop-sidebar {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  z-index: 1040;
+}
+
+.backdrop-sidebar.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* ========== RESPONSIVE ========== */
+@media (min-width: 768px) {
+  .sidebar {
+    transform: translateX(-100%);
+  }
+
+  .app-content {
+    padding-left: 0;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .sidebar {
+    width: 85%;
+    max-width: 300px;
+  }
+}
+
+.sidebar::-webkit-scrollbar {
+  width: 4px;
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+
+  border-radius: 2px;
+}

@@ -1,0 +1,239 @@
+@import url('../variables_globales.css');
+
+.modal-yearfiscal .yearfiscal-content {
+	background-color: var(--color-primary);
+	color: var(--text-secondary);
+	border: 1px solid var(--border-light);
+	border-top: 6px solid var(--color-accent);
+	border-radius: 10px;
+	box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+	font-family: var(--font-family-base);
+	transition: box-shadow .35s ease, transform .35s ease;
+	transform: translateY(-6px);
+}
+
+.modal-yearfiscal.show .yearfiscal-content {
+	transform: translateY(0);
+	box-shadow: 0 10px 28px rgba(0,0,0,0.18);
+}
+
+.modal-yearfiscal .yearfiscal-header {
+	background: linear-gradient(135deg, var(--color-quaternary), #ffffff);
+	border-bottom: 1px solid var(--border-lighter);
+}
+
+.modal-yearfiscal .yearfiscal-header .modal-title {
+	font-size: 1rem;
+	font-weight: 600;
+	color: var(--text-secondary);
+}
+
+.modal-yearfiscal .btn-close {
+	outline: none;
+	box-shadow: none;
+}
+
+.modal-yearfiscal .yearfiscal-body {
+	padding-top: 10px;
+}
+
+.yearfiscal-form label.form-label {
+	font-size: 0.78rem;
+	font-weight: 600;
+	color: var(--text-secondary);
+	margin-bottom: 6px;
+	text-transform: uppercase;
+	letter-spacing: .5px;
+}
+
+.yearfiscal-form .inputFiscal.form-control,
+.yearfiscal-form .inputFiscal.form-select {
+	background-color: var(--color-tertiary);
+	border: none;
+	border-radius: 10px;
+	height: 42px;
+	font-size: 0.85rem;
+	padding: 8px 14px;
+	color: var(--text-secondary);
+	transition: border .25s ease, box-shadow .25s ease, background-color .25s ease;
+}
+
+.yearfiscal-form .inputFiscal.form-control:focus,
+.yearfiscal-form .inputFiscal.form-select:focus {
+	background-color: var(--color-tertiary);
+	border: 1px solid var(--color-accent);
+	box-shadow: 0 0 0 3px rgba(66,214,61,0.15);
+	outline: none;
+}
+
+.yearfiscal-form .inputFiscal.form-control:hover,
+.yearfiscal-form .inputFiscal.form-select:hover {
+	background-color: #e7e7e7;
+}
+
+.yearfiscal-footer {
+	background-color: var(--color-quaternary);
+	border-top: 1px solid var(--border-lighter);
+}
+
+.yf-btn-create {
+	background-color: var(--color-secondary);
+	border: 1px solid var(--color-secondary);
+	font-weight: 600;
+	padding: 10px 22px;
+	border-radius: 10px;
+	transition: background-color .3s ease, box-shadow .3s ease, transform .15s ease;
+}
+
+.yf-btn-create:hover {
+	background-color: var(--color-accent);
+	border-color: var(--color-accent);
+}
+
+.yf-btn-create:active {
+	transform: scale(.97);
+}
+
+.yf-btn-cancel {
+	background-color: var(--color-primary);
+	color: var(--color-accent);
+	border: 2px solid var(--color-accent);
+	font-weight: 600;
+	padding: 10px 22px;
+	border-radius: 10px;
+	transition: background-color .3s ease, color .3s ease, transform .15s ease;
+}
+
+.yf-btn-cancel:hover {
+	background-color: var(--color-accent);
+	color: var(--color-primary);
+}
+
+.yf-btn-cancel:active {
+	transform: scale(.97);
+}
+
+/* Filas y separaciones */
+.yearfiscal-form .row {
+	margin-bottom: 4px;
+}
+
+/* Scroll personalizado cuerpo modal */
+.modal-yearfiscal .modal-body {
+	scrollbar-width: thin;
+	scrollbar-color: var(--color-accent) var(--color-quaternary);
+}
+
+.modal-yearfiscal .modal-body::-webkit-scrollbar {
+	width: 8px;
+}
+
+.modal-yearfiscal .modal-body::-webkit-scrollbar-track {
+	background: var(--color-quaternary);
+	border-radius: 10px;
+}
+
+.modal-yearfiscal .modal-body::-webkit-scrollbar-thumb {
+	background: var(--color-accent);
+	border-radius: 10px;
+}
+
+.modal-yearfiscal .modal-body::-webkit-scrollbar-thumb:hover {
+	background: var(--color-accent);
+}
+
+/* Estado de error */
+.yearfiscal-form .input-error {
+	border: 2px solid var(--error-color) !important;
+	background-color: #FFF0F0 !important;
+	animation: yf-shake .3s;
+}
+
+@keyframes yf-shake {
+	0% { transform: translateX(0); }
+	25% { transform: translateX(-4px); }
+	50% { transform: translateX(4px); }
+	75% { transform: translateX(-4px); }
+	100% { transform: translateX(0); }
+}
+
+@media (max-width: 576px) {
+	.yearfiscal-content { border-radius: 0; }
+	.yearfiscal-form .row { margin-bottom: 8px; }
+	.yf-btn-create, .yf-btn-cancel { width: 100%; }
+	.yearfiscal-footer { flex-direction: column; gap: 8px; }
+}
+
+/* ================== Alertas ================== */
+.yf-alerts {
+	position: relative;
+	margin-bottom: 14px;
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+}
+
+.yf-alert {
+	position: relative;
+	display: flex;
+	align-items: flex-start;
+	gap: 10px;
+	font-size: 0.8rem;
+	font-weight: 600;
+	padding: 10px 14px 10px 18px;
+	border-radius: 10px;
+	margin: 0;
+	color: var(--text-secondary);
+	background-color: var(--color-primary);
+	border: 1px solid var(--border-light);
+	box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+	opacity: 0;
+	transform: translateY(-6px);
+	animation: yf-alert-in 300ms ease-out forwards;
+}
+
+.yf-alert::before {
+	content: '';
+	position: absolute;
+	left: 0;
+	top: 0;
+	bottom: 0;
+	width: 6px;
+	border-radius: 10px 0 0 10px;
+	background-color: var(--border-light);
+}
+
+.yf-alert-success { color: var(--success-color); }
+.yf-alert-success::before { background-color: var(--success-color); }
+
+.yf-alert-error { color: var(--error-color); }
+.yf-alert-error::before { background-color: var(--error-color); }
+
+.yf-alert-info { color: var(--color-secondary); }
+.yf-alert-info::before { background-color: var(--color-secondary); }
+
+.yf-alert-close {
+	position: absolute;
+	top: 6px;
+	right: 8px;
+	border: none;
+	background: transparent;
+	color: inherit;
+	cursor: pointer;
+	font-size: 0.85rem;
+	padding: 4px;
+	line-height: 1;
+}
+
+.yf-alert-closing { animation: yf-alert-out 250ms ease-in forwards; }
+
+@keyframes yf-alert-in {
+	from { opacity: 0; transform: translateY(-6px); }
+	to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes yf-alert-out {
+	from { opacity: 1; transform: translateY(0); }
+	to { opacity: 0; transform: translateY(-6px); }
+}
+

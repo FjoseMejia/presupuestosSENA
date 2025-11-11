@@ -1,0 +1,108 @@
+@import url('../variables_globales.css');
+
+.modal-permissions .permissions-content {
+	background-color: var(--color-primary);
+	color: var(--text-secondary);
+	border: 1px solid var(--border-light);
+	border-top: 6px solid var(--color-accent);
+	border-radius: 10px;
+	box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+	font-family: var(--font-family-base);
+	transition: box-shadow .35s ease, transform .35s ease;
+	transform: translateY(-6px);
+}
+
+.modal-permissions.show .permissions-content {
+	transform: translateY(0);
+	box-shadow: 0 10px 28px rgba(0,0,0,0.18);
+}
+
+.modal-permissions .permissions-header {
+	background: linear-gradient(135deg, var(--color-quaternary), #ffffff);
+	border-bottom: 1px solid var(--border-lighter);
+}
+
+.modal-permissions .permissions-header .modal-title {
+	font-size: 1rem;
+	font-weight: 600;
+	color: var(--text-secondary);
+}
+
+.modal-permissions .btn-close {
+	outline: none;
+	box-shadow: none;
+}
+
+.modal-permissions .permissions-body {
+	padding-top: 10px;
+}
+
+.permissions-accordion .accordion-item {
+	background-color: var(--color-tertiary);
+	border: 1px solid var(--border-light);
+	border-radius: 8px;
+	margin-bottom: 8px;
+}
+
+.permissions-accordion .accordion-button {
+	background-color: var(--color-tertiary);
+	color: var(--text-secondary);
+}
+
+.permissions-accordion .accordion-button:not(.collapsed) {
+	color: var(--text-secondary);
+	background-color: #e7e7e7;
+	box-shadow: inset 0 -1px 0 var(--border-light);
+}
+
+.permissions-accordion .accordion-body {
+	background-color: var(--color-primary);
+}
+
+.permissions-footer {
+	background-color: var(--color-quaternary);
+	border-top: 1px solid var(--border-lighter);
+}
+
+.permissions-btn-save {
+	background-color: var(--color-secondary);
+	border: 1px solid var(--color-secondary);
+	font-weight: 600;
+	padding: 10px 22px;
+	border-radius: 10px;
+	transition: background-color .3s ease, box-shadow .3s ease, transform .15s ease;
+}
+
+.permissions-btn-save:hover {
+	background-color: var(--color-accent);
+	border-color: var(--color-accent);
+}
+
+.permissions-btn-save:active {
+	transform: scale(.97);
+}
+
+.permissions-btn-cancel {
+	background-color: var(--color-primary);
+	color: var(--color-accent);
+	border: 2px solid var(--color-accent);
+	font-weight: 600;
+	padding: 10px 22px;
+	border-radius: 10px;
+	transition: background-color .3s ease, color .3s ease, transform .15s ease;
+}
+
+.permissions-btn-cancel:hover {
+	background-color: var(--color-accent);
+	color: var(--color-primary);
+}
+
+.permissions-btn-cancel:active {
+	transform: scale(.97);
+}
+
+@media (max-width: 576px) {
+	.permissions-content { border-radius: 0; }
+	.permissions-btn-save, .permissions-btn-cancel { width: 100%; }
+	.permissions-footer { flex-direction: column; gap: 8px; }
+}

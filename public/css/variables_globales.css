@@ -1,0 +1,35 @@
+/* variables globales */
+
+:root {
+    --color-primary: #ffffff;
+    --color-secondary: #39A900;
+    --color-tertiary: #D9D9D9;
+    --color-quaternary: #F5F5F5;  
+    --color-quinary: #000000;
+    --color-accent: #42d63d;
+
+    /* Colores de texto */
+    --text-secondary: #353535;
+    --text-tertiary: #6E7C87;
+    --text-placeholder: #A9A9A9;
+    --text-disabled: #C0C0C0;
+    --text-inverse: #FFFFFF;
+
+    /* Colores de estado */
+    --success-color: #4caf50;
+    --success-hover: #45a049;
+    --error-color: #f44336;
+    --error-hover: #d32f2f;
+    
+    /* Colores de bordes y líneas */
+    --border-light: #e0e0e0;
+    --border-lighter: #eee;
+
+    /* Opacidades */
+    --opacity-overlay: 0.1;
+    --opacity-focus: 0.1;
+    --opacity-hover: 0.3;
+
+    /* Tipografía */
+    --font-family-base: Calibri, 'Segoe UI', Arial, Helvetica, sans-serif;
+}

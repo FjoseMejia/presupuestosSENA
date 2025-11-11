@@ -1,0 +1,91 @@
+@import url('../variables_globales.css');
+
+html,
+body {
+	height: 100%;
+}
+
+body {
+	margin: 0;
+	font-family: var(--font-family-base);
+	color: var(--text-secondary);
+	background: var(--color-quaternary);
+	line-height: 1.5;
+	display: grid;
+	place-content: center;
+	min-height: 100vh;
+	padding: 16px;
+}
+
+.error-container {
+	width: 100%;
+	max-width: 640px;
+	background: var(--color-primary);
+	border: 1px solid var(--border-lighter);
+	border-radius: 12px;
+	box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+	overflow: hidden;
+}
+
+.logo-sena {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 16px;
+	border-bottom: 1px solid var(--border-lighter);
+}
+
+.logo-sena img {
+	height: 45px;
+}
+
+.error-message {
+	padding: 24px;
+}
+
+.error-title h1 {
+	margin: 0 0 8px 0;
+	font-size: 28px;
+	font-weight: 700;
+	color: var(--text-secondary);
+}
+
+.error-description p {
+	margin: 0 0 16px 0;
+	color: var(--text-tertiary);
+}
+
+.error-description a {
+	display: inline-block;
+	background: var(--color-secondary);
+	color: var(--text-inverse);
+	text-decoration: none;
+	font-weight: 600;
+	padding: 10px 14px;
+	border-radius: 8px;
+	transition: background 0.2s ease, transform 0.05s ease-in;
+}
+
+.error-description a:hover {
+	background: #2f8e00;
+	transform: translateY(-1px);
+}
+
+.error-description a:active {
+	transform: translateY(0);
+}
+
+.error-description a:focus-visible {
+	outline: none;
+	box-shadow: 0 0 0 3px rgba(57, 169, 0, 0.25);
+}
+
+@media (max-width: 480px) {
+	.error-message {
+		padding: 16px;
+	}
+
+	.error-title h1 {
+		font-size: 22px;
+	}
+}

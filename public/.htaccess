@@ -1,0 +1,16 @@
+RewriteEngine On
+Options All -Indexes
+RewriteBase /
+
+# Evitar acceso directo a .htaccess, .env, etc.
+<FilesMatch "^(\.env|\.ht)">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+
+# Si es un archivo o directorio existente → no redirigir
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# Redirigir todo a index.php (manteniendo query string)
+RewriteRule ^ index.php [QSA,L]
